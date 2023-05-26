@@ -7,7 +7,7 @@ int main() {
     for (int i = 0; i < sum; i++) {
         for (int j = i + 1; j < sum; j++) {
             for (int k = j + 1; k < sum; k++) {
-                if (i + k + j == sum && i != k ) {
+                if (i + k + j == sum && i != k) {
                     cout << i << " " << j << " " << k << endl;
                 }
             }

@@ -1,5 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
 
 int main(){                     
 
@@ -13,7 +11,9 @@ cin<<number_1<<operator<<number_2;
    }else if(operator == "/"){
     cout<<number_1/number_2<<endl;
    }else if(operator=="-"){
-    cout<<number_1-number_2<<endl;
+    cout<<number_1-number_#include <bits/stdc++.h>
+using namespace std;
+2<<endl;
    }
 
 
