@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 int main() {
-    int Medium, Small, Large, Happy_score;
-    cin >> Medium >> Small >> Large;
-    Happy_score = Small + ((2 * Medium) + (3 * Large));
-    if (Happy_score >= 10) {
+    int medium, small, large, happy_score;
+    cin >> medium >> small >> large;
+    happy_score = small + ((2 * medium) + (3 * large));
+    if (happy_score >= 10) {
         cout << "happy" << endl;
     }else{
         cout<<"sad"<<endl;
