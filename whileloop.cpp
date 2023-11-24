@@ -1,10 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 int main() {
-    bool condition=0;
-    while(condition<10){
-        cout<<"banana"<<endl;
-        condition++;
+    int num = 0;
+    while (true) {
+        num = num + 1;
+        cout << num << endl;
+        if
+        
     }
     return 0;
 }

@@ -5,7 +5,9 @@ int main() {
     int Line, Number = 0;
     string Letter;
     cin >> Line;
+{
 
+}
     for (int i = 0; i < Line; i++) {
         cin >> Number >> Letter;
 
