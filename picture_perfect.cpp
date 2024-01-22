@@ -3,7 +3,7 @@ using namespace std;
 int main() {
     int input, length = 2, width, perimeter, modified_input, length_og;
     bool isprime;
-    while (input != 0) {
+    while ( input>0) {
         cin >> input;
         length = 2;
         length_og = length;
@@ -60,8 +60,7 @@ int main() {
             length = sqrt(input);
         }
 
-        cout << "Minimum perimeter " << perimeter << " "
-             << " With dimesions  " << length << " and " << width << endl;
+        cout << " Minimum perimeter " << length <<" "<<" With dimesions " << width << " and " << width << endl;
     }
     return 0;
 }
