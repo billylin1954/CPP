@@ -3,7 +3,7 @@ using namespace std;
 int main() {
     int input;
     cin >> input;
-    for (int i = 2; i <= (input - 1); i++) {
+    for (int i = 3; i <= (input - 1); i+=2) {
         if (input % i == 0) {
             cout << "composite" << endl;
             return 0;
