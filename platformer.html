@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>platform</title>
+</head>
+
+<body>
+    <canvas id="board" width="1500" height="1000"></canvas>
+    <script>
+        let x = 100;
+        let y = 90;
+        let Yvelocity;
+        let gravityspeed = 0;
+        let gravity = 0.03;
+        const c = document.getElementById("board");
+        const ctx = c.getContext("2d");
+        function collision(a,b){
+            
+        }
+        function update(){
+            ctx.clearRect(50,50,2000,1000);
+            ctx.fillRect(50,600,200,10);
+            gravityspeed += gravity;
+            console.log(y);
+            y += gravityspeed;
+            ctx.fillRect(x,y,50,50);
+            if (y > (800)) {
+                gravityspeed = 0;
+                y=800;
+                console.log("stop")
+            }
+        }
+        
+        window.addEventListener('keydown', (event) => {
+         if(event.code=="ArrowUp" && y==800){
+            gravityspeed+=-5;
+         }
+         if(event.code=="ArrowRight" ){
+            x+=10;
+         }
+         if(event.code=="ArrowLeft"){
+            x+=-10;
+         }
+        })
+       // ctx.moveTo(0, 0);
+        ctx.fillStyle = "red";
+        ctx.fillRect(50, 50, 1500, 1000)
+        ctx.fillStyle = "blue";
+        ctx.fillRect(x, y, 50, 50);
+       // window.addEventListener("keydown", moveplayer);
+        console.log(x);
+        setInterval(update,20);
+        
+    </script>
+</body>
+
+</html>
