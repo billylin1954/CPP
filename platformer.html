@@ -8,50 +8,65 @@
 </head>
 
 <body>
-    <canvas id="board" width="1500" height="1000"></canvas>
+    <canvas id="board" width=1200 height=900></canvas>
     <script>
-        let x = 100;
+        let platform=[];
+        let x =400;
+        let xvelocity=0;
         let y = 90;
         let Yvelocity;
         let gravityspeed = 0;
-        let gravity = 0.03;
+        let gravity = 0.2;
         const c = document.getElementById("board");
         const ctx = c.getContext("2d");
         function collision(a,b){
             
         }
         function update(){
-            ctx.clearRect(50,50,2000,1000);
-            ctx.fillRect(50,600,200,10);
-            gravityspeed += gravity;
+            ctx.clearRect(50,50,1500,1000);
+            ctx.fillRect(800,800,200,10);
+            console.log(x);
             console.log(y);
+            ctx.fillRect(300, 300, 500, 100)
+            gravityspeed += gravity;
             y += gravityspeed;
+            x+=xvelocity;
+            if(x>1120){
+                x=1120
+            }
+            if(x<50){
+                x=50;
+            }
             ctx.fillRect(x,y,50,50);
-            if (y > (800)) {
+            if (y > (400)) {
                 gravityspeed = 0;
-                y=800;
+                y=400;
                 console.log("stop")
             }
         }
         
-        window.addEventListener('keydown', (event) => {
-         if(event.code=="ArrowUp" && y==800){
-            gravityspeed+=-5;
+        addEventListener('keydown', (event) => {
+         if(event.code=="ArrowUp" && y==400){
+            gravityspeed+=-10;
+            console.log("working");
          }
-         if(event.code=="ArrowRight" ){
-            x+=10;
+         if(event.code=="ArrowRight" && x!=1120){
+            xvelocity=10;
          }
-         if(event.code=="ArrowLeft"){
-            x+=-10;
+         if(event.code=="ArrowLeft"&&x!=-1100){
+            xvelocity=-10;
          }
+        })
+        addEventListener('keyup',(event)=>{
+            if(event.code=="ArrowLeft"||event.code=="ArrowRight"){
+                xvelocity=0;
+            }
         })
        // ctx.moveTo(0, 0);
         ctx.fillStyle = "red";
-        ctx.fillRect(50, 50, 1500, 1000)
         ctx.fillStyle = "blue";
         ctx.fillRect(x, y, 50, 50);
        // window.addEventListener("keydown", moveplayer);
-        console.log(x);
         setInterval(update,20);
         
     </script>
