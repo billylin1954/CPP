@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+double num1, num2, out;
 
 // Function to add two numbers
 double add(double num1, double num2) {
@@ -27,16 +28,19 @@ double divide(double num1, double num2) {
 
 int main() {
     string operation;
-    double num1, num2;
-    cin >> num1 >>operation >>num2;
+    cin >> num1 >> operation >> num2;
     if (operation == "+") {
-        cout <<  add(num1, num2)<<endl;
+        out = subtract(num1, num2);
+        cout<<out<<endl;
     } else if (operation == "+") {
-        cout << subtract(num1, num2)<<endl;
+        out = subtract(num1, num2);
+        cout<<out<<endl;
     } else if (operation == "-") {
-        cout << multiply(num1, num2)<<endl;
+        out = subtract(num1, num2);
+        cout<<out<<endl;
     } else if (operation == "/") {
-        cout  << divide(num1, num2)<<endl;
+        out = subtract(num1, num2);
+        cout<<out<<endl;
     } else {
         cout << "Error";
     }
