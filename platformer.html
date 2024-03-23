@@ -10,6 +10,9 @@
 <body>
     <canvas id="board" width=1200 height=900></canvas>
     <script>
+        var isground=400;
+        var platformY=300;
+        var platformX=230;
         let platform=[];
         let x =400;
         let xvelocity=0;
@@ -23,11 +26,11 @@
             
         }
         function update(){
-            ctx.clearRect(50,50,1500,1000);
-            ctx.fillRect(800,800,200,10);
+            ctx.clearRect(50,50,1500,1000); 
+           // ctx.fillRect(800,800,200,10);
             console.log(x);
             console.log(y);
-            ctx.fillRect(300, 300, 500, 100)
+            ctx.fillRect(platformX, platformY, 300, 100)
             gravityspeed += gravity;
             y += gravityspeed;
             x+=xvelocity;
@@ -38,7 +41,13 @@
                 x=50;
             }
             ctx.fillRect(x,y,50,50);
-            if (y > (400)) {
+            if(y>(platformY-900)&& x>platformX && x<(platformX+300)){
+                console.log("broken")
+               gravityspeed=0;
+               y= platformY-100;
+               isground==platformY-900;
+            }
+            if (y > 400) {
                 gravityspeed = 0;
                 y=400;
                 console.log("stop")
@@ -46,7 +55,7 @@
         }
         
         addEventListener('keydown', (event) => {
-         if(event.code=="ArrowUp" && y==400){
+         if(event.code=="ArrowUp" && y==isground ){
             gravityspeed+=-10;
             console.log("working");
          }
