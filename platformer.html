@@ -26,9 +26,9 @@
         Yspeed:2
     }
     var floor=650;
-    var platformY = 450;
-    var platformX = 230;
-    let platform = [];
+    var platformY = 0;
+    var platformX = 0;
+    let platform = [450,430,1200,400];
     let x = 900;
     let xvelocity = 0;
     let y = 90;
@@ -48,7 +48,12 @@
         console.log(x);
         console.log(y);
         ctx.fillStyle = "red"
-        ctx.fillRect(platformX, platformY, 300, 50)
+        for(var i=0;i<=platform.length;i++){
+            platformX=platform[i];
+            platformY=platform[i+1];
+            ctx.fillRect(platformX, platformY, 300, 50)
+            
+        }
         ctx.fillStyle="green"
         ctx.fillRect(goomba.X,goomba.Y,goomba.width,goomba.height);
         //physics
@@ -57,7 +62,7 @@
         y += gravityspeed;
         goomba.Y+=goomba.Yspeed;
         x += xvelocity;
-        goomba.X+=(x)/0.5
+        goomba.X+=(x-goomba.X)/100
         if (x > 1940) {
             x = 1940;
         }
@@ -66,12 +71,17 @@
         }
         ctx.fillStyle = "blue";
         ctx.fillRect(x, y, 50, 50);
-        if (y > (platformY - 50) && x > platformX && x < (platformX + 300) && y < floor) {
-            console.log("broken")
-            gravityspeed = 0;
-            y = platformY - 50;
-            isground = y;
-        }
+        for(var a=0;a<=platform.length;a++){
+            platformX=platform[a]
+            platformY=platform[a+1]
+            if (y > (platformY - 50) && x > platformX && x < (platformX + 300) && y < floor) {
+                console.log("broken")
+                gravityspeed = 0;
+                y = platformY - 50;
+                isground = y;
+                break;
+            }
+    }
 
         if (y > floor) {
             isground = floor;
@@ -89,7 +99,7 @@
     //inputs
     addEventListener('keydown', (event) => {
         if (event.code == "ArrowUp" && y == isground) {
-            gravityspeed += -10;
+            gravityspeed += -12;
             //console.log("working");
         }
         if (event.code == "ArrowRight" && x != 1120) {
