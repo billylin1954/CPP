@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <canvas id="board" width=1000 height="1000"></canvas>
+    <canvas id="board" width=400 height="400"></canvas>
     <script>
         //variables
         console.log(outerWidth)
@@ -40,7 +40,7 @@
             level2: [450, 380, 500, 500, 800, 800, 300, 50]
         }
         // var levelnum=[levels.level2]
-        var floor = 730;
+        var floor = window.innerwidth/2;
         var platformY = 0;
         var platformX = 0;
         var platformwidth = 0;
@@ -58,11 +58,10 @@
         let gravity = 0.4;
         const c = document.getElementById("board");
         const ctx = c.getContext("2d");
-        ctx.canvas.width = window.outerWidth;
-        ctx.canvas.height = window.outerHeight;
-
         //update function
         function update() {
+            ctx.canvas.width = window.outerWidth;
+            ctx.canvas.height = 2000;
             ctx.clearRect(0, 0, window.outerWidth, window.outerHeight);
             backroundImg = new Image();
             backroundImg.src = "platfrom_backround.png";
@@ -70,12 +69,12 @@
             desertImg.src = "desert.png";
             playerImg = new Image();
             playerImg.src = "player.png";
-            ctx.drawImage(backroundImg, 0, 0, 3200, 1700);
+            ctx.drawImage(backroundImg, 0, 0, window.outerWidth, outerWidth);
             ctx.fillStyle = "#FF033E"
 
-            ctx.drawImage(desertImg, desertX, floor + 180, window.outerWidth, 300);
+            ctx.drawImage(desertImg, desertX, floor - 180, window.outerWidth, 400);
             
-            ctx.drawImage(desertImg, desert2X, floor + 180, window.outerWidth, 300);
+            ctx.drawImage(desertImg, desert2X, floor - 180, window.outerWidth, 400);
 
             // console.log(x);
             // console.log(y);
@@ -142,7 +141,7 @@
                 }
             }
             for (var a = 0; a < platform2.length; a += 4) {
-                platformX = platform2[a];
+                platformX = platform2[a] + window.outerWidth;
                 platformY = platform2[a + 1];
                 platformwidth = platform2[a + 2];
                 platformheight = platform2[a + 3];
@@ -152,6 +151,11 @@
                     y = platformY - 180;
                     isground = y;
                     break;
+                }
+                if(x >= platformX && x<=(platformX+(platformwidth/2)) && y<platformY && y>(platformY+platformheight)){
+                   x=platformX+90;
+                }else if (x <= platformX && x>=(platformX+(platformwidth/2)) && y<platformY && y>(platformY+platformheight)){
+                  x=platformX+platformwidth;
                 }
             }
 
