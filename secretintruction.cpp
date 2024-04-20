@@ -2,32 +2,32 @@
 using namespace std;
 
 int main() {
-    int leftright = 0, dir1, dir2, input;
-    string lastdir = "error";
+    int left_right = 0, dir_1, dir_2, input;
+    string last_dir = "error";
     while (true) {
-        cin >> leftright;
-        if (leftright == 99999) {
+        cin >> left_right;
+        if (left_right == 99999) {
             break;
         }
-        input = leftright;
+        input = left_right;
         for (int i = 0; i < 5; i++) {
             int num = input % 10;
             input = input / 10;
             if (i == 3) {
-                dir1 = num;
+                dir_1 = num;
             }
             if (i == 4) {
-                dir2 = num;
+                dir_2 = num;
             }
         }
-        if (((dir1 + dir2) % 2 == 0) && (dir1 + dir2) != 0) {
-            lastdir = "right";
-            cout << "right " << leftright - (((dir2 * 10) + dir1) * 1000) << endl;
-        } else if ((dir1 + dir2) != 0) {
-            lastdir = "left";
-            cout << "left " << leftright - ((((dir2 * 10) + dir1)) * 1000) << endl;
+        if (((dir_1 + dir_2) % 2 == 0) && (dir_1 + dir_2) != 0) {
+            last_dir = "right";
+            cout << "right " << left_right - (((dir_2 * 10) + dir_1) * 1000) << endl;
+        } else if ((dir_1 + dir_2) != 0) {
+            last_dir = "left";
+            cout << "left " << left_right - ((((dir_2 * 10) + dir_1)) * 1000) << endl;
         } else {
-            cout << lastdir << " " << leftright - ((((dir2 * 10) + dir1)) * 1000) << endl;
+            cout << last_dir << " " << left_right - ((((dir_2 * 10) + dir_1)) * 1000) << endl;
         }
     }
     return 0;
