@@ -1,17 +1,29 @@
 #include <bits/stdc++.h>
 using namespace std;
 int main() {
-    int arr[4][4],values[4];
-    for(int i=0;i<4;i++){
-        for(int j=0;j<4;j++){
-            cin>>arr[i][j];
-            values[i]+=arr[i][j];
+    int arr[4][4], rows[4];
+    string answer;
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            cin >> arr[i][j];
+            rows[i] += arr[i][j];
         }
     }
-    if(values[0]==values[1]&&values[0]==values[2]&&values[0]==values[3]&&values[2]==values[3]){
-        cout<<"magic"<<endl;
-    }else{
-        cout<<"not magic"<<endl;
+    // for(int i=0;i<4;i++){
+    //     for(int j=0;j<4;j++){
+    //         cout<<arr[i][j]<<" ";
+    //     }
+    //     cout<<" "<<endl;
+    // }
+
+    for (int j = 0; j < 4; j++) {
+        if (rows[i] == rows[j]) {
+            answer = "magic";
+        } else {
+        cout << "not magic" << endl;
+            return 0;
+        }
     }
+        cout << "magic" << endl;
     return 0;
 }
