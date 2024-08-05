@@ -36,4 +36,4 @@ int main() {
         cout << output[i] << endl;
     }
     return 0;
-}
+};
